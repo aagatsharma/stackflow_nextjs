@@ -1,0 +1,63 @@
+1. Nextjs setup
+    - Add eslint config
+        npm install eslint-config-standard
+
+        on .eslintrc.json 
+        {"extends": ["next/core-web-vitals", "standard"]}
+    
+    - Testing eslint
+        npm run lint 
+
+    - Eslint for Tailwind CSS
+        npm install eslint-plugin-tailwindcss 
+
+        on .eslintrc.json 
+        {"extends": ["next/core-web-vitals", "standard","plugin:tailwindcss/recommended"]}
+    
+    - Prettier and Eslint conflict fix
+        npm install eslint-config-prettier
+
+        on .eslintrc.json 
+        {"extends": ["next/core-web-vitals", "standard","plugin:tailwindcss/recommended","prettier"]}
+
+    - Install prettier
+        npm i prettier
+
+    - Setup VSCode
+        {
+            "editor.defaultFormatter": "esbenp.prettier-vscode",
+            "editor.formatOnSave": true,
+            "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true,
+            "source.addMissingImports": true
+        },
+        "[typescriptreact]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+            }
+        }
+
+2. Reactjs (Vite) setup
+    - Remove .eslintrc.cjs and replace with .eslintrc.json with:
+        {
+            "env": {
+            "browser": true,
+            "es2021": true
+        },
+        "extends": [
+            "standard",
+            "plugin:react/recommended",
+            "plugin:tailwindcss/recommended",
+            "prettier"
+        ],
+        "parserOptions": {
+            "ecmaVersion": "latest",
+            "sourceType": "module"
+        },
+        "plugins": ["react"],
+        "rules": {}
+        }
+
+    - install packages:
+        npm install eslint-config-standard eslint-plugin-tailwindcss eslint-config-prettier prettier
+
+
