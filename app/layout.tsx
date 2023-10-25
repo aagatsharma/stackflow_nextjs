@@ -6,6 +6,7 @@ import "../styles/globals.css";
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
