@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 // eslint-disable-next-line camelcase
 import { Inter, Space_Grotesk } from "next/font/google";
 import "../styles/globals.css";
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/assets/images/site-logo.svg",
   },
+
 };
 
 export default function RootLayout({
