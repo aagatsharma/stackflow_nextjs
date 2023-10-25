@@ -6,7 +6,6 @@ import "../styles/globals.css";
 import React from "react";
 import { ClerkProvider } from "@clerk/nextjs";
 
-
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -24,7 +23,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/assets/images/site-logo.svg",
   },
-
 };
 
 export default function RootLayout({
