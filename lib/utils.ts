@@ -5,6 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// compares currentime with createdtime and gives difference in time
 export const getTimestamp = (createdAt: Date): string => {
   const now = new Date();
   const timeDifference = now.getTime() - createdAt.getTime();
@@ -42,7 +43,7 @@ export const getTimestamp = (createdAt: Date): string => {
   }
 };
 
-// utils.js
+// convert large numbers to more readable
 export function formatNumber(number: number): string {
   const suffixes = ["", "K", "M", "B", "T"];
 
