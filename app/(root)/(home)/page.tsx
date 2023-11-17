@@ -1,3 +1,4 @@
+import { getQuestions } from "@/actions/question.action";
 import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilters from "@/components/home/HomeFilters";
 import Filter from "@/components/shared/Filter";
@@ -7,59 +8,8 @@ import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import Link from "next/link";
 
-const questions = [
-  {
-    _id: "1",
-    title: "How to cook a perfect steak?",
-    tags: [
-      { _id: "tag1", name: "Cooking" },
-      { _id: "tag2", name: "Food" },
-    ],
-    author: {
-      _id: "author1",
-      name: "Chef Gordon Ramsay",
-      picture: "gordon-ramsay.jpg",
-    },
-    upvotes: 1278,
-    views: 23657,
-    answers: [
-      { answerId: "answer1", text: "Season the steak with salt and pepper..." },
-      {
-        answerId: "answer2",
-        text: "Preheat a cast-iron skillet over high heat...",
-      },
-    ],
-    createdAt: new Date("2023-11-07T18:45:00"),
-  },
-  {
-    _id: "2",
-    title: "Best practices for web development in 2023",
-    tags: [
-      { _id: "tag3", name: "Web Development" },
-      { _id: "tag4", name: "Programming" },
-    ],
-    author: {
-      _id: "author2",
-      name: "Jane Developer",
-      picture: "jane-dev.jpg",
-    },
-    upvotes: 2011,
-    views: 12345,
-    answers: [
-      {
-        answerId: "answer3",
-        text: "Use TypeScript for stronger type checking...",
-      },
-      {
-        answerId: "answer4",
-        text: "Optimize images and assets for faster load times...",
-      },
-    ],
-    createdAt: new Date("2023-11-08T22:15:00"),
-  },
-];
-
-export default function Home() {
+export default async function Home() {
+  const result = await getQuestions({});
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -91,8 +41,8 @@ export default function Home() {
       <HomeFilters />
 
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}

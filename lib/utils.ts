@@ -44,18 +44,17 @@ export const getTimestamp = (createdAt: Date): string => {
 };
 
 // convert large numbers to more readable
-export function formatNumber(number: number): string {
-  const suffixes = ["", "K", "M", "B", "T"];
-
-  let magnitude = 0;
-  while (Math.abs(number) >= 1000 && magnitude < suffixes.length - 1) {
-    number /= 1000;
-    magnitude++;
+export const formatNumber = (number: number): string => {
+  if (number >= 1000000) {
+    // If the number is in millions (1,000,000 or more)
+    const millions = (number / 1000000).toFixed(2);
+    return `${millions}M`;
+  } else if (number >= 1000) {
+    // If the number is in thousands (1,000 or more)
+    const thousands = (number / 1000).toFixed(2);
+    return `${thousands}K`;
+  } else {
+    // If the number is less than 1,000, simply return the number as is
+    return `${number}`;
   }
-
-  const formattedNumber = Number.isInteger(number)
-    ? number.toString()
-    : number.toFixed(2);
-
-  return `${formattedNumber} ${suffixes[magnitude]}`;
-}
+};
